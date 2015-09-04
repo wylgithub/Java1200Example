@@ -10,6 +10,10 @@ public class Demo01 {
 		System.out.println("   *****   ");
 		System.out.println("  *******  ");
 		System.out.println(" ********* ");
+		
+		
+		//method2 use for loop print *
+//		for(int i = 0;i < )
 	}
 
 }
