@@ -85,7 +85,7 @@ public class TogetherWay {
 //			if(index == 10){
 //				System.out.println();
 //				index = 0;
-//			}
+//			} 
 //		}
 		int check = 0;
 		for(int i=0;i<arr.length;i++){
@@ -122,9 +122,49 @@ public class TogetherWay {
 		max = arr[arr.length-1];
 		//输出求得信息
 		System.out.println("该数组的最大值为:\t\t"+max+"\n最小值为:\t\t"+min+"\n平均值为:\t\t"+avg+"\n和为:\t\t"+sum);
-		
-		
 	}
+	
+	/*
+	 * 快速排序
+	 */
+	public static void quickSort(int sortArray[],int lowIndex,int highIndex){
+		int lo = lowIndex;
+		int hi = highIndex;
+		int mid;
+		if(highIndex > lowIndex){
+			mid = sortArray[(highIndex+lowIndex)/2];//取得中间元素
+			//确定中间分界点元素值
+			while(lo <= hi){
+				while((lo < highIndex)&&(sortArray[lo] < mid)){
+					++lo;
+				}
+				while((hi>lowIndex)&&(sortArray[hi] > mid)){
+					--hi;
+				}
+				if(lo <= hi){
+					swap(sortArray,lo,hi);//交换两个索引的元素
+					++lo;
+					--hi;
+				}
+			}
+			if(lowIndex < hi){
+				quickSort(sortArray,lowIndex,hi);
+			}
+			if(lo < highIndex){
+				quickSort(sortArray,lo,highIndex);
+			}
+		}
+	}
+
+	//交换数组元素位置
+	public static  void swap(int []array, int index1, int index2){
+		int temp;
+		temp = array[index1];
+		array[index2] = array[index1];
+		array[index1] = temp;
 		
+		//打印输出数组元素
+		checkOutput(array);
+	}	
 		
 }
